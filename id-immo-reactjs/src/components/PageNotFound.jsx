@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import ErrorIcon from '@mui/icons-material/Error';
 
 const PageNotFound = () => {
 
@@ -16,7 +16,7 @@ const PageNotFound = () => {
 
         {/* Icône principale */}
         <div className="mb-4">
-          <ErrorOutlineIcon style={{ fontSize: 80, color: "#4b9cde" }} />
+          <ErrorIcon style={{ fontSize: 80, color: "#4b9cde" }} />
         </div>
 
         {/* Code erreur */}
