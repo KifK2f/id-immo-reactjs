@@ -4,6 +4,8 @@ import PageNotFound from './PageNotFound'
 import Dashboard from './Dashboard'
 import PrixM2 from './PrixM2'
 import ZoneExplorer from './ZoneExplorer'
+import Login from './Login'
+import Register from './Register'
 
 // Composant générique pour les pages
 const Page = ({ title, children }) => (
@@ -20,6 +22,11 @@ const AppRouter = () => {
       <Routes>
         {/* Pour les url erroné on affichera une page */}
         <Route path="*" element={<PageNotFound/>} />
+
+        {/* Authentification */}
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+
 
 
         <Route path="/" element={<Dashboard/>} />
