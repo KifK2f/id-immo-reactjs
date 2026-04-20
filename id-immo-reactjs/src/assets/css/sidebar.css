@@ -1,3 +1,8 @@
+/* ================================================================
+   SIDEBAR CSS — VERSION FINALE
+   Design complet V1 + logique responsive corrigée
+   ================================================================ */
+
 :root {
   --sb-width: 260px;
   --sb-collapsed-width: 70px;
@@ -20,20 +25,30 @@
   --sb-font: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-/* ---- OVERLAY MOBILE ---- */
+/* ================================================================
+   OVERLAY
+   ----------------------------------------------------------------
+   CORRECTION CLÉ :
+   - Toujours dans le DOM (pas de display:none)
+   - Quand fermé : opacity 0 + pointer-events none (non cliquable)
+   - Quand ouvert : opacity 1 + pointer-events auto (cliquable)
+   - Caché sur desktop, visible sur tablet/mobile via media query
+   ================================================================ */
 .sb-overlay {
-  display: none;
+  display: none;               /* caché sur desktop par défaut */
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   z-index: 199;
   opacity: 0;
+  pointer-events: none;        /* non cliquable quand invisible */
   transition: opacity var(--sb-transition);
   backdrop-filter: blur(2px);
 }
 
 .sb-overlay--visible {
   opacity: 1;
+  pointer-events: auto;        /* cliquable quand sidebar ouverte */
 }
 
 /* ---- ROOT ---- */
@@ -98,14 +113,12 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 10px 10px;
+  padding: 10px;
   scrollbar-width: thin;
   scrollbar-color: var(--sb-border) transparent;
 }
 
-.sb-nav::-webkit-scrollbar {
-  width: 4px;
-}
+.sb-nav::-webkit-scrollbar { width: 4px; }
 .sb-nav::-webkit-scrollbar-track { background: transparent; }
 .sb-nav::-webkit-scrollbar-thumb {
   background: var(--sb-border);
@@ -399,35 +412,41 @@
   to   { opacity: 1; }
 }
 
-/* ---- RESPONSIVE ---- */
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
 
-/* Tablette : sidebar icon-only */
+/* ---- TABLET (≤1024px) : icon-only par défaut ---- */
 @media (max-width: 1024px) {
-  .sb-root {
-    width: var(--sb-collapsed-width);
-  }
-  .sb-root--open {
-    width: var(--sb-width);
-    box-shadow: 4px 0 32px rgba(0,0,0,0.15);
-  }
+  /* L'overlay devient visible (était display:none sur desktop) */
   .sb-overlay {
     display: block;
+  }
+
+  .sb-root {
+    width: var(--sb-collapsed-width);  /* 70px icon-only */
+  }
+
+  .sb-root--open {
+    width: var(--sb-width);            /* 260px au clic bouton */
+    box-shadow: 4px 0 32px rgba(0, 0, 0, 0.15);
   }
 }
 
-/* Mobile : sidebar cachée hors écran */
+/* ---- MOBILE (≤768px) : drawer off-canvas ---- */
 @media (max-width: 768px) {
-  .sb-root {
-    width: var(--sb-width);
-    transform: translateX(-100%);
-    box-shadow: none;
-  }
-  .sb-root--open {
-    transform: translateX(0);
-    box-shadow: 4px 0 32px rgba(0,0,0,0.2);
-    width: var(--sb-width);
-  }
   .sb-overlay {
     display: block;
+  }
+
+  .sb-root {
+    width: var(--sb-width);            /* 260px fixe */
+    transform: translateX(-100%);      /* caché hors-écran */
+    box-shadow: none;
+  }
+
+  .sb-root--open {
+    transform: translateX(0);          /* slide-in — PAS de width ici */
+    box-shadow: 4px 0 32px rgba(0, 0, 0, 0.2);
   }
 }

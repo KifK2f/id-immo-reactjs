@@ -1,4 +1,4 @@
-/* ---- RESET & BASE ---- */
+/* ---- RESET ---- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -24,19 +24,23 @@ body {
   min-height: 100vh;
 }
 
-/* ---- MAIN ZONE (content à droite de la sidebar) ---- */
+/* ---- MAIN ---- */
 .app-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin-left: 260px; /* = var(--sb-width) */
+
+  /* Desktop : sidebar 260px visible par défaut */
+  margin-left: 260px;
+
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 0;
 }
 
+/* Desktop collapsed (hamburger) */
 .app-main--collapsed {
-  margin-left: 70px; /* = var(--sb-collapsed-width) */
+  margin-left: 70px;
 }
 
 /* ---- TOPBAR ---- */
@@ -99,26 +103,36 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- RESPONSIVE ---- */
+/* ================================================================
+   RESPONSIVE
+   ----------------------------------------------------------------
+   RÈGLE CLAIRE :
+   • Desktop (>1024px)  → margin-left suit la sidebar (260 ou 70px)
+   • Tablet (≤1024px)   → sidebar icon-only 70px, margin-left: 70px fixe
+   • Mobile (≤768px)    → sidebar off-canvas, margin-left: 0
+   ================================================================ */
 
-/* Tablette */
 @media (max-width: 1024px) {
+  /* Tablet : sidebar icon-only, on ne joue plus sur collapsed JS */
   .app-main {
-    margin-left: 70px; /* sidebar collapsed */
+    margin-left: 70px;
   }
+
   .app-main--collapsed {
     margin-left: 70px;
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
+  /* Mobile : sidebar drawer hors-écran → contenu pleine largeur */
   .app-main {
     margin-left: 0 !important;
   }
+
   .app-content {
     padding: 20px 16px;
   }
+
   .app-topbar {
     padding: 0 16px;
   }
