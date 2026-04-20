@@ -43,7 +43,7 @@ function App() {
             </button>
 
             <div className="app-topbar-right">
-              <span className="app-topbar-greeting">Bienvenue 👋</span>
+              <span className="app-topbar-greeting">Bienvenue M./Mme</span>
             </div>
           </header>
 

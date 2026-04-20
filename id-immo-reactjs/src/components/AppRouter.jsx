@@ -1,8 +1,9 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom"
 import PageNotFound from './PageNotFound'
-// import Home from './Home'
-
+import Dashboard from './Dashboard'
+import PrixM2 from './PrixM2'
+import Map from './Map'
 
 
 // Composant générique pour les pages
@@ -22,8 +23,9 @@ const AppRouter = () => {
         <Route path="*" element={<PageNotFound/>} />
 
 
-        {/* Page d'accueil */}
-        {/* <Route path="/" element={<Home/>} /> */}
+        <Route path="/" element={<Dashboard/>} />
+        <Route path="/prix-m2" element={<PrixM2/>} />
+        <Route path="/map" element={<Map/>} />
 
         
       </Routes>

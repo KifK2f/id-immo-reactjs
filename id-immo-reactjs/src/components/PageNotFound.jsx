@@ -16,7 +16,7 @@ const PageNotFound = () => {
 
         {/* Icône principale */}
         <div className="mb-4">
-          <ErrorIcon style={{ fontSize: 80, color: "#4b9cde" }} />
+          <ErrorIcon style={{ fontSize: 80, color: "#4F46E5" }} />
         </div>
 
         {/* Code erreur */}
@@ -34,7 +34,7 @@ const PageNotFound = () => {
           <Link 
             to="/" 
             className="btn fw-bold text-white px-4"
-            style={{ backgroundColor: "#4b9cde" }}
+            style={{ backgroundColor: "#4F46E5" }}
           >
             <HomeIcon className="me-2" />
             Accueil
