@@ -50,16 +50,7 @@ const menuItems = [
     section: "DONNÉES IMMOBILIÈRES",
     items: [
       { label: "Biens immobiliers", icon: "Biens", path: "/biens" },
-      { label: "Zones géographiques", icon: "Location", path: "/zones" },
-      { label: "Sources de données", icon: "Database", path: "/sources" },
-    ],
-  },
-  {
-    section: "PIPELINE DATA",
-    items: [
-      { label: "Collecte des données", icon: "Data", path: "/collecte" },
-      { label: "Nettoyage des données", icon: "Cleaning", path: "/cleaning" },
-      { label: "Stockage & Modélisation", icon: "Structure", path: "/modelisation" },
+      { label: "Explorer une zone", icon: "Location", path: "/zone" },
     ],
   },
   {
@@ -70,33 +61,20 @@ const menuItems = [
       { label: "Évolution des prix", icon: "Timeline", path: "/evolution" },
     ],
   },
-  {
-    section: "INTELLIGENCE ARTIFICIELLE",
-    items: [
-      {
-        label: "Modèles IA",
-        icon: "Model",
-        path: null,
-        children: [
-          { label: "Régression (prix)", path: "/ia/regression" },
-          { label: "Prédictions", path: "/ia/predictions" },
-        ]
-      },
-    ],
-  },
-  {
-    section: "VISUALISATION",
-    items: [
-      { label: "Cartes (Heatmap)", icon: "Map", path: "/map" },
-      { label: "Dashboard avancé", icon: "Analytics", path: "/dashboard-advanced" },
-    ],
-  },
-  {
-    section: "PARAMÈTRES",
-    items: [
-      { label: "Configuration", icon: "Settings", path: "/settings" },
-    ],
-  },
+  
+  // {
+  //   section: "VISUALISATION",
+  //   items: [
+  //     { label: "Cartes (Heatmap)", icon: "Map", path: "/map" },
+  //     { label: "Dashboard avancé", icon: "Analytics", path: "/dashboard-advanced" },
+  //   ],
+  // },
+  // {
+  //   section: "PARAMÈTRES",
+  //   items: [
+  //     { label: "Configuration", icon: "Settings", path: "/settings" },
+  //   ],
+  // },
 ]
 
 const Sidebar = ({ open, onClose, collapsed }) => {

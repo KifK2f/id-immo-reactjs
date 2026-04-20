@@ -2,8 +2,6 @@ import React from 'react'
 
 import "../assets/css/map.css";
 
-import "./map.css";
-
 const zones = [
   { name: "Centre", value: 90 },
   { name: "Adidogomé", value: 60 },

@@ -3,8 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import PageNotFound from './PageNotFound'
 import Dashboard from './Dashboard'
 import PrixM2 from './PrixM2'
-import Map from './Map'
-
+import ZoneExplorer from './ZoneExplorer'
 
 // Composant générique pour les pages
 const Page = ({ title, children }) => (
@@ -25,7 +24,7 @@ const AppRouter = () => {
 
         <Route path="/" element={<Dashboard/>} />
         <Route path="/prix-m2" element={<PrixM2/>} />
-        <Route path="/map" element={<Map/>} />
+        <Route path="/zone" element={<ZoneExplorer/>} />
 
         
       </Routes>
